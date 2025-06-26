@@ -9,6 +9,9 @@
   },
   "author": "Vignesh Narayanan",
   "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.3"
+  },
   "devDependencies": {
     "jest": "^30.0.3"
   }
