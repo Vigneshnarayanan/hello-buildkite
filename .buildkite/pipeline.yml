@@ -1,0 +1,3 @@
+steps:
+  - label: ":hammer: Install & Test"
+    command: "npm install && npm test"
