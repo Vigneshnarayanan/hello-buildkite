@@ -1,7 +1,9 @@
 steps:
-  - label: ":node: Run Node.js App"
+  - label: ":node: Install and Run"
     commands:
+      - echo "--- Cleaning old modules"
+      - rm -rf node_modules
       - echo "--- Installing dependencies"
       - npm install
-      - echo "--- Running the app"
+      - echo "--- Starting app"
       - node index.js
