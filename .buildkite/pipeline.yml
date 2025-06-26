@@ -1,3 +1,7 @@
 steps:
-  - label: ":hammer: Install & Test"
-    command: "npm install && npm test"
+  - label: ":node: Run Node.js App"
+    commands:
+      - echo "--- Installing dependencies"
+      - npm install
+      - echo "--- Running the app"
+      - node index.js
