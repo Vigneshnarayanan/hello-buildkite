@@ -2,7 +2,8 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 
-const PORT = process.env.PORT || 0; // 0 = pick a random available port
+// PORT = 0 lets the system assign a random available port
+const PORT = process.env.PORT || 0;
 
 app.get('/', (req, res) => {
   res.send('Hello from Buildkite!');
