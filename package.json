@@ -4,17 +4,11 @@
   "description": "A simple Node.js app to demonstrate Buildkite CI pipeline",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "jest"
+    "start": "node index.js"
   },
   "author": "Vignesh Narayanan",
   "license": "MIT",
   "dependencies": {
-    "dotenv": "^16.0.3",
-    "express": "^4.18.2",
-    "portfinder": "^1.0.37"
-  },
-  "devDependencies": {
-    "jest": "^30.0.3"
+    "express": "^4.18.2"
   }
 }
