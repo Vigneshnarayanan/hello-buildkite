@@ -1,9 +1,10 @@
 steps:
-  - label: ":node: Install and Run"
+  - label: ":node: Run Node.js App"
     commands:
-      - echo "--- Cleaning old modules"
-      - rm -rf node_modules
       - echo "--- Installing dependencies"
       - npm install
-      - echo "--- Starting app"
+      - echo "--- Pick a random free port"
+      - export PORT=$((3100 + RANDOM % 1000))
+      - echo "Using PORT=$PORT"
+      - echo "--- Running the app"
       - node index.js
