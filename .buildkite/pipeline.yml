@@ -3,9 +3,9 @@ steps:
     commands:
       - echo "--- Installing dependencies"
       - npm install
-      - echo "--- Running the app in the background"
-      - PORT=3333 node index.js &
-      - echo "--- Waiting for app to be ready"
+      - echo "--- Running the app in the background on random port"
+      - PORT=0 node index.js &
+      - echo "--- Wait for app to start"
       - sleep 5
-      - echo "--- Running tests"
+      - echo "--- Running test"
       - npm test
