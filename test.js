@@ -1,3 +1,10 @@
-test('adds 1 + 1 to equal 2', () => {
-  expect(1 + 1).toBe(2);
+const request = require('supertest');
+const app = require('./index');
+
+describe('GET /', () => {
+  it('should return Hello from Buildkite!', async () => {
+    const res = await request(app).get('/');
+    expect(res.statusCode).toEqual(200);
+    expect(res.text).toContain('Hello from Buildkite!');
+  });
 });

@@ -1,10 +1,7 @@
 steps:
-  - label: ":node: Run Node.js App"
+  - label: ":npm: Install & Test"
     commands:
       - echo "--- Installing dependencies"
       - npm install
-      - echo "--- Pick a random free port"
-      - export PORT=$((3100 + RANDOM % 1000))
-      - echo "Using PORT=$PORT"
-      - echo "--- Running the app"
-      - node index.js
+      - echo "--- Running tests"
+      - npm test

@@ -1,21 +1,18 @@
-// index.js
+require('dotenv').config();
 const express = require('express');
 const app = express();
 
-// Use dynamic port for CI
 const PORT = process.env.PORT || 3100;
 
 app.get('/', (req, res) => {
-  res.send(`Hello from Buildkite on port ${PORT}!`);
+  res.send('Hello from Buildkite!');
 });
 
-const server = app.listen(PORT, () => {
-  console.log(`✅ App running on port ${PORT}`);
-});
-
-// Graceful shutdown in CI
-process.on('SIGTERM', () => {
-  server.close(() => {
-    console.log('🛑 Process terminated');
+// ✅ Only run the server locally, NOT in CI/CD
+if (process.env.CI !== 'true') {
+  app.listen(PORT, () => {
+    console.log(`✅ App running on port ${PORT}`);
   });
-});
+}
+
+module.exports = app;
