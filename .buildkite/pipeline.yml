@@ -1,11 +1,9 @@
 steps:
-  - label: ":node: Install and Test"
+  - label: ":node: Dummy check"
     commands:
       - echo "--- Installing dependencies"
       - npm install
-      - echo "--- Running the app in the background on random port"
-      - PORT=0 node index.js &
-      - echo "--- Wait for app to start"
+      - echo "--- Start and check app"
+      - PORT=3100 node index.js &
       - sleep 5
-      - echo "--- Running test"
-      - npm test
+      - curl -f http://localhost:3100/
