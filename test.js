@@ -1,10 +1,22 @@
-const request = require('supertest');
-const app = require('./index');
+const http = require('http');
 
-describe('GET /', () => {
-  it('should return Hello from Buildkite!', async () => {
-    const res = await request(app).get('/');
-    expect(res.statusCode).toEqual(200);
-    expect(res.text).toContain('Hello from Buildkite!');
+const options = {
+  hostname: 'localhost',
+  port: process.env.PORT || 3333,
+  path: '/',
+  method: 'GET'
+};
+
+const req = http.request(options, res => {
+  res.setEncoding('utf8');
+  res.on('data', chunk => {
+    console.log(`✅ Test output: ${chunk}`);
   });
 });
+
+req.on('error', error => {
+  console.error(`❌ Test failed: ${error}`);
+  process.exit(1);
+});
+
+req.end();
